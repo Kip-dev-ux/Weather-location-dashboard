@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vendor Ledger & Fee Optimizer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Merchant Transaction Ledger</h1>
+            <p>Track sales, optimize transaction fees, and protect your margins.</p>
+        </header>
+
+        <main class="dashboard-grid">
+            <!-- Input Form Card -->
+            <section class="form-card">
+                <h2>Record New Sale</h2>
+                <form id="transaction-form">
+                    <div class="input-group">
+                        <label for="amount">Gross Sale Amount (KES)</label>
+                        <input type="number" id="amount" placeholder="e.g. 2500" required min="1">
+                        <span class="error-msg" id="amount-error"></span>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="payment-method">Payment Channel</label>
+                        <select id="payment-method">
+                            <option value="mpesa-stk">M-Pesa STK Push (Customer Pays)</option>
+                            <option value="mpesa-till">M-Pesa Buy Goods Till (0.5% Merchant Fee)</option>
+<option value="mpesa-withdrawal">M-Pesa Customer Withdrawal (Tiered Tariff)</option>                        </select>
+                    </div>
+
+                    <button type="submit" id="submit-btn">Log Transaction</button>
+                </form>
+            </section>
+
+            <!-- Metrics Summary Card -->
+            <section class="summary-card">
+                <h2>Business Metrics</h2>
+                <div class="metrics-grid">
+                    <div class="metric-box">
+                        <h3>Total Gross Sales</h3>
+                        <p id="total-gross">KES 0.00</p>
+                    </div>
+                    <div class="metric-box warning">
+                        <h3>Total Fees Paid</h3>
+                        <p id="total-fees">KES 0.00</p>
+                    </div>
+                    <div class="metric-box success">
+                        <h3>Net Profit</h3>
+                        <p id="total-net">KES 0.00</p>
+                    </div>
+                </div>
+
+  <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 24px; margin-bottom: 12px;">
+      <h3 style="margin: 0;">Recent Transactions Log</h3>
+      <button id="clear-ledger-btn" style="width: auto; padding: 6px 12px; background-color: #EF4444; font-size: 0.85rem;">Clear Ledger</button>
+  </div>
+                <div class="log-container">
+                    <ul id="transaction-list">
+                        <!-- Dynamic rows injected here -->
+                    </ul>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
