@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NexusPOS | Inventory & Sales Engine</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="topbar">
+    <div class="brand">Nexus<span>POS</span></div>
+    <span class="badge">Inventory Engine v1.0</span>
+  </header>
+
+  <main class="container">
+    <!-- Live Metrics Dashboard -->
+    <section class="kpi-grid">
+      <div class="kpi-card">
+        <p class="kpi-label">Total Stock Units</p>
+        <h2 id="kpi-units">0</h2>
+      </div>
+      <div class="kpi-card">
+        <p class="kpi-label">Inventory Value (Cost)</p>
+        <h2 id="kpi-value">KES 0</h2>
+      </div>
+      <div class="kpi-card alert-card">
+        <p class="kpi-label">Low Stock Items (&lt;5)</p>
+        <h2 id="kpi-low">0</h2>
+      </div>
+    </section>
+
+    <!-- Add New Product Form -->
+    <section class="panel">
+      <h3>Add / Restock Product</h3>
+      <form id="product-form" class="form-grid">
+        <input type="text" id="sku" placeholder="SKU (e.g., PRD-001)" required>
+        <input type="text" id="name" placeholder="Product Name" required>
+        <input type="number" id="cost" placeholder="Cost Price (KES)" min="1" required>
+        <input type="number" id="price" placeholder="Selling Price (KES)" min="1" required>
+        <input type="number" id="stock" placeholder="Initial Stock Qty" min="1" required>
+        <button type="submit" class="btn-primary">+ Save to Inventory</button>
+      </form>
+    </section>
+
+    <!-- Live Inventory Ledger -->
+    <section class="panel">
+      <div class="panel-header">
+        <h3>Live Inventory Ledger</h3>
+        <input type="text" id="search-input" placeholder="Search SKU or name...">
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>SKU</th>
+              <th>Item</th>
+              <th>Cost</th>
+              <th>Price</th>
+              <th>Margin</th>
+              <th>Stock</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="inventory-body"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
