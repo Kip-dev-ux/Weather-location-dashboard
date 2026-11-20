@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Currency Converter</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="container">
+    <h1>Currency Converter</h1>
+    <p class="subtitle">Live global exchange rates</p>
+
+    <form id="converterForm">
+      <div class="field">
+        <label for="amount">Amount</label>
+        <input type="number" id="amount" value="1000" min="0.01" step="any" required />
+      </div>
+
+      <div class="row">
+        <div class="field">
+          <label for="fromCurrency">From</label>
+          <select id="fromCurrency">
+            <option value="KES" selected>KES - Kenyan Shilling</option>
+            <option value="USD">USD - US Dollar</option>
+            <option value="EUR">EUR - Euro</option>
+            <option value="GBP">GBP - British Pound</option>
+            <option value="UGX">UGX - Ugandan Shilling</option>
+            <option value="TZS">TZS - Tanzanian Shilling</option>
+          </select>
+        </div>
+
+        <button type="button" id="swapBtn" class="swap-btn" title="Swap currencies">⇄</button>
+
+        <div class="field">
+          <label for="toCurrency">To</label>
+          <select id="toCurrency">
+            <option value="USD" selected>USD - US Dollar</option>
+            <option value="KES">KES - Kenyan Shilling</option>
+            <option value="EUR">EUR - Euro</option>
+            <option value="GBP">GBP - British Pound</option>
+            <option value="UGX">UGX - Ugandan Shilling</option>
+            <option value="TZS">TZS - Tanzanian Shilling</option>
+          </select>
+        </div>
+      </div>
+
+      <button type="submit" class="btn">Convert</button>
+    </form>
+
+    <div class="result-card" id="resultCard">
+      <p class="rate-info" id="rateInfo">Enter an amount and tap Convert</p>
+      <h2 id="convertedResult">--</h2>
+    </div>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
