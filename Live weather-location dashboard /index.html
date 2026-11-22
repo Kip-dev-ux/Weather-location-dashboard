@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Live Weather & Location Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="container">
+    <header class="top-bar">
+      <div>
+        <h1>Weather & Location</h1>
+        <p class="subtitle" id="currentDate">Loading date...</p>
+      </div>
+      <div class="header-actions">
+        <button type="button" id="gpsBtn" class="icon-btn" title="Use my GPS location">📍 GPS</button>
+        <button type="button" id="unitToggle" class="unit-btn">°C / °F</button>
+      </div>
+    </header>
+
+    <form id="searchForm" class="search-box">
+      <input type="text" id="cityInput" placeholder="Search city (e.g., Kericho, Nairobi, London)" required />
+      <button type="submit" class="btn">Search</button>
+    </form>
+
+    <div class="saved-cities" id="savedCities"></div>
+
+    <p class="status-msg" id="statusMsg">Initializing dashboard...</p>
+
+    <section class="weather-card">
+      <div class="card-top">
+        <div class="location-info">
+          <h2 id="cityName">Nairobi, Kenya</h2>
+          <p id="coordsText">Lat: -1.29, Lon: 36.82</p>
+        </div>
+        <button type="button" id="saveCityBtn" class="save-btn">☆ Save</button>
+      </div>
+
+      <div class="temp-row">
+        <span class="weather-icon" id="weatherIcon">⛅</span>
+        <div>
+          <span class="temp-value" id="tempValue">23°C</span>
+          <p class="weather-desc" id="weatherDesc">Partly Cloudy</p>
+        </div>
+      </div>
+
+      <div class="details-grid">
+        <div class="detail-box">
+          <span>Feels Like</span>
+          <strong id="feelsVal">24°C</strong>
+        </div>
+        <div class="detail-box">
+          <span>Humidity</span>
+          <strong id="humidityVal">58%</strong>
+        </div>
+        <div class="detail-box">
+          <span>Wind</span>
+          <strong id="windVal">14 km/h</strong>
+        </div>
+        <div class="detail-box">
+          <span>UV Index</span>
+          <strong id="uvVal">6 (High)</strong>
+        </div>
+        <div class="detail-box">
+          <span>Pressure</span>
+          <strong id="pressureVal">1016 hPa</strong>
+        </div>
+        <div class="detail-box">
+          <span>Sunrise / Set</span>
+          <strong id="sunVal">06:18 / 18:24</strong>
+        </div>
+      </div>
+    </section>
+
+    <section class="forecast-section">
+      <h3>5-Day Forecast</h3>
+      <div class="forecast-list" id="forecastList"></div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
+
